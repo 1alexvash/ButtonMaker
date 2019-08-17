@@ -1,0 +1,158 @@
+.input {
+  width: 45%;
+  .tab {
+    margin-bottom: 16px;
+    .tab-name {
+      cursor: pointer;
+      font-size: 36px;
+      font-weight: bold;
+      margin-bottom: 16px;
+      position: relative;
+      padding: 10px;
+      background: grey;
+      transition: 0.7s;
+      .arrow-down {
+        user-select: none;
+        position: absolute;
+        top: 50%;
+        right: 10px;
+        transform: translate(0, -50%) rotate(0);
+        width: 36px;
+        height: 36px;
+        transition: 0.7s;
+      }
+    }
+    .tab-content {
+      display: none;
+      .input-group {
+        padding: 10px;
+        margin-bottom: 10px;
+        background: lighten(lightgray, 10%);
+        input {
+          padding: 5px;
+          border: 2px solid black;
+        }
+      }
+    }
+    &.active {
+      .tab-name {
+        background: lighten(lightgray, 10%);
+      }
+      .tab-content {
+        display: block;
+        animation: 0.7s rollUp;
+        @keyframes rollUp {
+          from {
+            transform: scale(0, 1);
+          }
+          to {
+            transform: scale(1);
+          }
+        }
+      }
+      .arrow-down {
+        transform: translate(0, -50%) rotate(90deg);
+      }
+    }
+  }
+  .tab-text {
+    label {
+    }
+    input[type="text"] {
+      margin-top: 10px;
+      padding: 5px;
+    }
+    .text-inner {
+    }
+    .text-family {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .text-size {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      input[type="number"] {
+        width: 25%;
+        padding: 5px;
+      }
+    }
+    .text-style {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      input[type="checkbox"] {
+        cursor: pointer;
+        width: 20px;
+        height: 20px;
+      }
+    }
+    .text-color {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      input[type="color"] {
+        width: 24px;
+        height: 24px;
+        padding: 0;
+      }
+    }
+    .text-has-shadow {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      input[type="checkbox"] {
+        cursor: pointer;
+        width: 20px;
+        height: 20px;
+      }
+    }
+    .text-shadow {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      input[type="number"] {
+        display: block;
+        width: 50%;
+      }
+      input[type="color"] {
+        display: block;
+        width: 24px;
+        height: 24px;
+        padding: 0;
+      }
+    }
+  }
+  .tab-paddings {
+  }
+  .tab-border {
+    .border-style {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .border-color {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      input[type="color"] {
+        width: 24px;
+        height: 24px;
+        padding: 0;
+      }
+    }
+  }
+  .tab-background {
+    .button-background {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      input[type="color"] {
+        width: 24px;
+        height: 24px;
+        padding: 0;
+      }
+    }
+  }
+}

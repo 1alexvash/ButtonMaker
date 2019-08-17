@@ -29,33 +29,105 @@ input {
       -ms-flex-pack: justify;
           justify-content: space-between;
   padding: 20px;
-  width: 960px;
+  width: 1024px;
   margin: auto;
   font-size: 20px;
 }
 
-.App .settings section {
+.input {
+  width: 45%;
+}
+
+.input .tab {
   margin-bottom: 16px;
 }
 
-.App .settings section .section-name {
+.input .tab .tab-name {
+  cursor: pointer;
   font-size: 36px;
   font-weight: bold;
   margin-bottom: 16px;
+  position: relative;
+  padding: 10px;
+  background: grey;
+  -webkit-transition: 0.7s;
+  transition: 0.7s;
 }
 
-.App .settings section .input-group {
+.input .tab .tab-name .arrow-down {
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+  position: absolute;
+  top: 50%;
+  right: 10px;
+  -webkit-transform: translate(0, -50%) rotate(0);
+          transform: translate(0, -50%) rotate(0);
+  width: 36px;
+  height: 36px;
+  -webkit-transition: 0.7s;
+  transition: 0.7s;
+}
+
+.input .tab .tab-content {
+  display: none;
+}
+
+.input .tab .tab-content .input-group {
   padding: 10px;
   margin-bottom: 10px;
   background: #ededed;
 }
 
-.App .settings .text input[type="text"] {
+.input .tab .tab-content .input-group input {
+  padding: 5px;
+  border: 2px solid black;
+}
+
+.input .tab.active .tab-name {
+  background: #ededed;
+}
+
+.input .tab.active .tab-content {
+  display: block;
+  -webkit-animation: 0.7s rollUp;
+          animation: 0.7s rollUp;
+}
+
+@-webkit-keyframes rollUp {
+  from {
+    -webkit-transform: scale(0, 1);
+            transform: scale(0, 1);
+  }
+  to {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
+}
+
+@keyframes rollUp {
+  from {
+    -webkit-transform: scale(0, 1);
+            transform: scale(0, 1);
+  }
+  to {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
+}
+
+.input .tab.active .arrow-down {
+  -webkit-transform: translate(0, -50%) rotate(90deg);
+          transform: translate(0, -50%) rotate(90deg);
+}
+
+.input .tab-text input[type="text"] {
   margin-top: 10px;
   padding: 5px;
 }
 
-.App .settings .text .text-size {
+.input .tab-text .text-family {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -67,12 +139,24 @@ input {
           align-items: center;
 }
 
-.App .settings .text .text-size input[type="number"] {
+.input .tab-text .text-size {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.input .tab-text .text-size input[type="number"] {
   width: 25%;
   padding: 5px;
 }
 
-.App .settings .text .text-style {
+.input .tab-text .text-style {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -84,13 +168,13 @@ input {
           align-items: center;
 }
 
-.App .settings .text .text-style input[type="checkbox"] {
+.input .tab-text .text-style input[type="checkbox"] {
   cursor: pointer;
   width: 20px;
   height: 20px;
 }
 
-.App .settings .text .text-color {
+.input .tab-text .text-color {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -102,11 +186,31 @@ input {
           align-items: center;
 }
 
-.App .settings .text .text-color input[type="color"] {
+.input .tab-text .text-color input[type="color"] {
+  width: 24px;
+  height: 24px;
+  padding: 0;
+}
+
+.input .tab-text .text-has-shadow {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.input .tab-text .text-has-shadow input[type="checkbox"] {
+  cursor: pointer;
   width: 20px;
+  height: 20px;
 }
 
-.App .settings .border .border-style {
+.input .tab-text .text-shadow {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -118,7 +222,19 @@ input {
           align-items: center;
 }
 
-.App .settings .border .border-color {
+.input .tab-text .text-shadow input[type="number"] {
+  display: block;
+  width: 50%;
+}
+
+.input .tab-text .text-shadow input[type="color"] {
+  display: block;
+  width: 24px;
+  height: 24px;
+  padding: 0;
+}
+
+.input .tab-border .border-style {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -130,26 +246,103 @@ input {
           align-items: center;
 }
 
-.App .settings .border .border-color input[type="color"] {
-  width: 20px;
+.input .tab-border .border-color {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
-.App .button-preview .my-button {
+.input .tab-border .border-color input[type="color"] {
+  width: 24px;
+  height: 24px;
+  padding: 0;
+}
+
+.input .tab-background .button-background {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.input .tab-background .button-background input[type="color"] {
+  width: 24px;
+  height: 24px;
+  padding: 0;
+}
+
+.output {
+  width: 45%;
+}
+
+.output h2 {
+  font-size: 36px;
+  font-weight: bold;
+  margin-bottom: 16px;
+}
+
+.output h3 {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 12px;
+}
+
+.output .button-window {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  border: 2px solid black;
+  height: 400px;
+  margin-bottom: 20px;
+}
+
+.output .button-window .my-button {
   cursor: pointer;
 }
 
-.App .background .button-background {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+.output code {
+  display: block;
+  margin-bottom: 20px;
+  font-size: 16px;
+  padding: 10px;
+  background: #ededed;
+  position: relative;
 }
 
-.App .background .button-background input[type="color"] {
-  width: 20px;
+.output code .red {
+  color: #cc0000;
+}
+
+.output code .green {
+  color: #1bb01b;
+}
+
+.output code .orange {
+  color: orange;
+}
+
+.output code .code-copy {
+  cursor: pointer;
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 32px;
+  height: 32px;
 }

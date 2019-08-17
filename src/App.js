@@ -2,10 +2,14 @@ import React, { useState } from "react";
 import "./scss/main.css";
 
 import ButtonPreview from "./components/ButtonPreview/ButtonPreview";
+import HTMLOutput from "./components/HTMLOutput/HTMLOutput";
+import CSSOutput from "./components/CSSOutput/CSSOutput";
 
 const App = () => {
+  const [tab, setTab] = useState("not set");
   const [button, updateButton] = useState({
     text: "Click Me",
+    fontFamily: "Arial",
     fontSize: 20,
     textBold: false,
     textItalic: false,
@@ -16,287 +20,375 @@ const App = () => {
     paddingBottom: 15,
     borderWidth: 2,
     borderStyle: "solid",
-    borderColor: "#000000",
+    borderColor: "#333333",
     borderRadiusTopLeft: 8,
     borderRadiusTopRight: 8,
     borderRadiusBottomLeft: 8,
     borderRadiusBottomRight: 8,
-    background: "deepskyblue"
+    background: "deepskyblue",
+    hasTextShadow: false,
+    textShadowX: 0,
+    textShadowY: 0,
+    textShadowBlur: 0,
+    textShadowColor: "#333333"
   });
 
-  function updateText(e) {
-    updateButton({ ...button, text: e.target.value });
-  }
-
-  function updateFontSize(e) {
-    updateButton({ ...button, fontSize: e.target.value });
-  }
-
-  function toggleBoldness(e) {
-    updateButton({ ...button, textBold: e.target.checked });
-  }
-
-  function toggleItalicness(e) {
-    updateButton({ ...button, textItalic: e.target.checked });
-  }
-
-  function updateTextColor(e) {
-    updateButton({ ...button, textColor: e.target.value });
-  }
-
-  function updatePadding(e, side) {
-    if (side === "left") {
-      updateButton({ ...button, paddingLeft: e.target.value });
-    }
-    if (side === "right") {
-      updateButton({ ...button, paddingRight: e.target.value });
-    }
-    if (side === "top") {
-      updateButton({ ...button, paddingTop: e.target.value });
-    }
-    if (side === "bottom") {
-      updateButton({ ...button, paddingBottom: e.target.value });
-    }
-  }
-
-  function updateBorderWidth(e) {
-    updateButton({ ...button, borderWidth: e.target.value });
-  }
-
-  function updateBorderStyle(e) {
-    updateButton({ ...button, borderStyle: e.target.value });
-  }
-
-  function updateBorderColor(e) {
-    updateButton({ ...button, borderColor: e.target.value });
-  }
-
-  function updateBorderRadius(e, side) {
-    if (side === "topLeft") {
-      updateButton({ ...button, borderRadiusTopLeft: e.target.value });
-    }
-    if (side === "topRight") {
-      updateButton({ ...button, borderRadiusTopRight: e.target.value });
-    }
-    if (side === "bottomLeft") {
-      updateButton({ ...button, borderRadiusBottomLeft: e.target.value });
-    }
-    if (side === "bottomRight") {
-      updateButton({ ...button, borderRadiusBottomRight: e.target.value });
-    }
-  }
-
-  function updateBackgroundColor(e) {
-    updateButton({ ...button, background: e.target.value });
+  function buttonSetNewValue(value, prop) {
+    updateButton({
+      ...button,
+      [prop]: value
+    });
+    console.log(value, prop, button);
   }
 
   return (
     <div className="App">
-      <div className="settings">
-        <section className="text">
-          <div className="section-name">Text:</div>
-          <div className="input-group text-inner">
-            <label htmlFor="text">Button Text:</label>
-            <input
-              id="text"
-              onChange={e => updateText(e)}
-              defaultValue={button.text}
-              type="text"
-              placeholder="Button Text"
+      <div className="input">
+        <div className={`tab tab-text ${tab === "tab-text" ? "active" : ""}`}>
+          <div className="tab-name" onClick={() => setTab("tab-text")}>
+            Text:{" "}
+            <img
+              src="/images/arrow-down.png"
+              alt="arrow-down"
+              className="arrow-down"
             />
           </div>
-          <div className="input-group text-size">
-            <label htmlFor="textSize">Font Size:</label>
-            <input
-              id="textSize"
-              onChange={e => updateFontSize(e)}
-              defaultValue={button.fontSize}
-              type="number"
-              placeholder="Text Size"
-              min="10"
-              max="100"
+          <div className="tab-content">
+            <div className="input-group text-inner">
+              <label htmlFor="text">Button Text:</label>
+              <input
+                id="text"
+                onChange={e => buttonSetNewValue(e.target.value, "text")}
+                defaultValue={button.text}
+                type="text"
+                placeholder="Button Text"
+              />
+            </div>
+            <div className="input-group text-family">
+              <label htmlFor="borderStyle">Font Family:</label>
+              <select
+                id="borderStyle"
+                onChange={e => buttonSetNewValue(e.target.value, "fontFamily")}
+              >
+                <option value="Arial">Arial</option>
+                <option value="Verdana">Verdana</option>
+                <option value="Georgia">Georgia</option>
+                <option value="Times New Roman">Times New Roman</option>
+                <option value="Courier New">Courier New</option>
+                <option value="Lucida Console">Lucida Console</option>
+              </select>
+            </div>
+            <div className="input-group text-size">
+              <label htmlFor="textSize">Font Size:</label>
+              <input
+                id="textSize"
+                onChange={e => buttonSetNewValue(e.target.value, "fontSize")}
+                defaultValue={button.fontSize}
+                type="number"
+                placeholder="Text Size"
+                min="10"
+                max="100"
+              />
+            </div>
+            <div className="input-group text-style">
+              <label htmlFor="textBold">Bold:</label>
+              <input
+                id="textBold"
+                onChange={e => buttonSetNewValue(e.target.checked, "textBold")}
+                checked={button.textBold}
+                type="checkbox"
+              />
+              <label htmlFor="textBold">Italic:</label>
+              <input
+                id="textBold"
+                onChange={e =>
+                  buttonSetNewValue(e.target.checked, "textItalic")
+                }
+                checked={button.textItalic}
+                type="checkbox"
+              />
+            </div>
+            <div className="input-group text-color">
+              <label htmlFor="textColor">Text Color:</label>
+              <input
+                id="textColor"
+                onChange={e => buttonSetNewValue(e.target.value, "textColor")}
+                defaultValue={button.textColor}
+                type="color"
+              />
+            </div>
+            <div className="input-group text-has-shadow">
+              <label htmlFor="hasTextShadow">Add Text Shadow:</label>
+              <input
+                id="hasTextShadow"
+                onChange={e =>
+                  buttonSetNewValue(e.target.checked, "hasTextShadow")
+                }
+                checked={button.hasTextShadow}
+                type="checkbox"
+              />
+            </div>
+            {button.hasTextShadow ? (
+              <div className="input-group text-shadow">
+                <div>
+                  <label htmlFor="textShadowX">X:</label>
+                  <input
+                    id="textShadowX"
+                    onChange={e =>
+                      buttonSetNewValue(e.target.value, "textShadowX")
+                    }
+                    value={button.textShadowX}
+                    type="number"
+                  />
+                </div>
+                <div>
+                  <label htmlFor="textShadowY">Y:</label>
+                  <input
+                    id="textShadowY"
+                    onChange={e =>
+                      buttonSetNewValue(e.target.value, "textShadowY")
+                    }
+                    value={button.textShadowY}
+                    type="number"
+                  />
+                </div>
+                <div>
+                  <label htmlFor="textShadowBlur">Blur:</label>
+                  <input
+                    id="textShadowBlur"
+                    onChange={e =>
+                      buttonSetNewValue(e.target.value, "textShadowBlur")
+                    }
+                    value={button.textShadowBlur}
+                    type="number"
+                  />
+                </div>
+                <div>
+                  <label htmlFor="textShadowColor">Color:</label>
+                  <input
+                    id="textShadowColor"
+                    onChange={e =>
+                      buttonSetNewValue(e.target.value, "textShadowColor")
+                    }
+                    value={button.textShadowColor}
+                    type="color"
+                  />
+                </div>
+              </div>
+            ) : (
+              ""
+            )}
+          </div>
+        </div>
+        <div
+          className={`tab tab-paddings ${
+            tab === "tab-paddings" ? "active" : ""
+          }`}
+        >
+          <div className="tab-name" onClick={() => setTab("tab-paddings")}>
+            Paddings:{" "}
+            <img
+              src="/images/arrow-down.png"
+              alt="arrow-down"
+              className="arrow-down"
             />
           </div>
-          <div className="input-group text-style">
-            <label htmlFor="textBold">Bold:</label>
-            <input
-              id="textBold"
-              onChange={e => toggleBoldness(e)}
-              value={button.textBold}
-              checked={button.textBold}
-              type="checkbox"
-            />
-            <label htmlFor="textBold">Italic:</label>
-            <input
-              id="textBold"
-              onChange={e => toggleItalicness(e)}
-              value={button.textItalic}
-              checked={button.textItalic}
-              type="checkbox"
-            />
+          <div className="tab-content">
+            <div className="input-group">
+              <label htmlFor="paddingLeft">Left Padding:</label>
+              <input
+                id="paddingLeft"
+                onChange={e => buttonSetNewValue(e.target.value, "paddingLeft")}
+                value={button.paddingLeft}
+                type="number"
+                min="0"
+                max="100"
+              />
+            </div>
+            <div className="input-group">
+              <label htmlFor="paddingRight">Right Padding:</label>
+              <input
+                id="paddingRight"
+                onChange={e =>
+                  buttonSetNewValue(e.target.value, "paddingRight")
+                }
+                value={button.paddingRight}
+                type="number"
+                min="0"
+                max="100"
+              />
+            </div>
+            <div className="input-group">
+              <label htmlFor="paddingTop">Top Padding:</label>
+              <input
+                id="paddingTop"
+                onChange={e => buttonSetNewValue(e.target.value, "paddingTop")}
+                value={button.paddingTop}
+                type="number"
+                min="0"
+                max="100"
+              />
+            </div>
+            <div className="input-group">
+              <label htmlFor="paddingBottom">Bottom Padding:</label>
+              <input
+                id="paddingBottom"
+                onChange={e =>
+                  buttonSetNewValue(e.target.value, "paddingBottom")
+                }
+                value={button.paddingBottom}
+                type="number"
+                min="0"
+                max="100"
+              />
+            </div>
           </div>
-          <div className="input-group text-color">
-            <label htmlFor="textColor">Text Color:</label>
-            <input
-              id="textColor"
-              onChange={e => updateTextColor(e)}
-              defaultValue={button.textColor}
-              type="color"
-            />
-          </div>
-        </section>
-        <section className="padding">
-          <div className="section-name">Padding:</div>
-          <div className="input-group">
-            <label htmlFor="paddingLeft">Left Padding:</label>
-            <input
-              id="paddingLeft"
-              onChange={e => updatePadding(e, "left")}
-              value={button.paddingLeft}
-              type="number"
-              min="0"
-              max="100"
-            />
-          </div>
-          <div className="input-group">
-            <label htmlFor="paddingRight">Right Padding:</label>
-            <input
-              id="paddingRight"
-              onChange={e => updatePadding(e, "right")}
-              value={button.paddingRight}
-              type="number"
-              min="0"
-              max="100"
-            />
-          </div>
-          <div className="input-group">
-            <label htmlFor="paddingTop">Top Padding:</label>
-            <input
-              id="paddingTop"
-              onChange={e => updatePadding(e, "top")}
-              value={button.paddingTop}
-              type="number"
-              min="0"
-              max="100"
-            />
-          </div>
-          <div className="input-group">
-            <label htmlFor="paddingBottom">Bottom Padding:</label>
-            <input
-              id="paddingBottom"
-              onChange={e => updatePadding(e, "bottom")}
-              value={button.paddingBottom}
-              type="number"
-              min="0"
-              max="100"
+        </div>
+        <div
+          className={`tab tab-border ${tab === "tab-border" ? "active" : ""}`}
+        >
+          <div className="tab-name" onClick={() => setTab("tab-border")}>
+            Border:{" "}
+            <img
+              src="/images/arrow-down.png"
+              alt="arrow-down"
+              className="arrow-down"
             />
           </div>
-        </section>
-        <section className="border">
-          <div className="section-name">Border:</div>
-          <div className="input-group border-width">
-            <label htmlFor="topLeft">Border Width:</label>
-            <input
-              id="topLeft"
-              onChange={e => updateBorderWidth(e)}
-              value={button.borderWidth}
-              type="number"
-              min="0"
-              max="20"
+          <div className="tab-content">
+            <div className="input-group border-width">
+              <label htmlFor="topLeft">Border Width:</label>
+              <input
+                id="topLeft"
+                onChange={e => buttonSetNewValue(e.target.value, "borderWidth")}
+                value={button.borderWidth}
+                type="number"
+                min="0"
+                max="20"
+              />
+            </div>
+            <div className="input-group border-style">
+              <label htmlFor="borderStyle">Border Style:</label>
+              <select
+                id="borderStyle"
+                onChange={e => buttonSetNewValue(e.target.value, "borderStyle")}
+              >
+                <option value="solid">Solid</option>
+                <option value="dotted">Dotted</option>
+                <option value="dashed">Dashed</option>
+              </select>
+            </div>
+            <div className="input-group border-color">
+              <label htmlFor="borderColor">Border Color:</label>
+              <input
+                id="borderColor"
+                onChange={e => buttonSetNewValue(e.target.value, "borderColor")}
+                defaultValue={button.borderColor}
+                type="color"
+              />
+            </div>
+            <div className="input-group">
+              <label htmlFor="topLeft">Top Left Radius:</label>
+              <input
+                id="topLeft"
+                onChange={e =>
+                  buttonSetNewValue(e.target.value, "borderRadiusTopLeft")
+                }
+                value={button.borderRadiusTopLeft}
+                type="number"
+                min="0"
+                max="100"
+              />
+            </div>
+            <div className="input-group">
+              <label htmlFor="topRight">Top Right Radius:</label>
+              <input
+                id="topRight"
+                onChange={e =>
+                  buttonSetNewValue(e.target.value, "borderRadiusTopRight")
+                }
+                value={button.borderRadiusTopRight}
+                type="number"
+                min="0"
+                max="100"
+              />
+            </div>
+            <div className="input-group">
+              <label htmlFor="bottomLeft">Bottom Left Radius:</label>
+              <input
+                id="bottomLeft"
+                onChange={e =>
+                  buttonSetNewValue(e.target.value, "borderRadiusBottomLeft")
+                }
+                value={button.borderRadiusBottomLeft}
+                type="number"
+                min="0"
+                max="100"
+              />
+            </div>
+            <div className="input-group">
+              <label htmlFor="bottomRight">Bottom Right Radius:</label>
+              <input
+                id="bottomRight"
+                onChange={e =>
+                  buttonSetNewValue(e.target.value, "borderRadiusBottomRight")
+                }
+                value={button.borderRadiusBottomRight}
+                type="number"
+                min="0"
+                max="100"
+              />
+            </div>
+          </div>
+        </div>
+        <div
+          className={`tab tab-background ${
+            tab === "tab-background" ? "active" : ""
+          }`}
+        >
+          <div className="tab-name" onClick={() => setTab("tab-background")}>
+            Background:{" "}
+            <img
+              src="/images/arrow-down.png"
+              alt="arrow-down"
+              className="arrow-down"
             />
           </div>
-          <div className="input-group border-style">
-            <label htmlFor="borderStyle">Border Style:</label>
-            <select id="borderStyle" onChange={e => updateBorderStyle(e)}>
-              <option value="solid">Solid</option>
-              <option value="dotted">Dotted</option>
-              <option value="dashed">Dashed</option>
-            </select>
+          <div className="tab-content">
+            <div className="input-group button-background">
+              <label htmlFor="backgroundColor">Background Color:</label>
+              <input
+                id="backgroundColor"
+                onChange={e => buttonSetNewValue(e.target.value, "background")}
+                defaultValue={button.background}
+                type="color"
+              />
+            </div>
           </div>
-          <div className="input-group border-color">
-            <label htmlFor="borderColor">Border Color:</label>
-            <input
-              id="borderColor"
-              onChange={e => updateBorderColor(e)}
-              defaultValue={button.borderColor}
-              type="color"
-            />
-          </div>
-          <div className="input-group">
-            <label htmlFor="topLeft">Top Left Radius:</label>
-            <input
-              id="topLeft"
-              onChange={e => updateBorderRadius(e, "topLeft")}
-              value={button.borderRadiusTopLeft}
-              type="number"
-              min="0"
-              max="100"
-            />
-          </div>
-          <div className="input-group">
-            <label htmlFor="topRight">Top Right Radius:</label>
-            <input
-              id="topRight"
-              onChange={e => updateBorderRadius(e, "topRight")}
-              value={button.borderRadiusTopRight}
-              type="number"
-              min="0"
-              max="100"
-            />
-          </div>
-          <div className="input-group">
-            <label htmlFor="bottomLeft">Bottom Left Radius:</label>
-            <input
-              id="bottomLeft"
-              onChange={e => updateBorderRadius(e, "bottomLeft")}
-              value={button.borderRadiusBottomLeft}
-              type="number"
-              min="0"
-              max="100"
-            />
-          </div>
-          <div className="input-group">
-            <label htmlFor="bottomRight">Bottom Right Radius:</label>
-            <input
-              id="bottomRight"
-              onChange={e => updateBorderRadius(e, "bottomRight")}
-              value={button.borderRadiusBottomRight}
-              type="number"
-              min="0"
-              max="100"
-            />
-          </div>
-        </section>
-        <section class="background">
-          <div className="section-name">Background</div>
-          <div className="input-group button-background">
-            <label htmlFor="backgroundColor">Background Color:</label>
-            <input
-              id="backgroundColor"
-              onChange={e => updateBackgroundColor(e)}
-              defaultValue={button.background}
-              type="color"
-            />
-          </div>
-        </section>
-        {/*
-          <section>text-color</section>
-          <section>box-shadow</section>
-          section extra features
-          <section>hover effect</section>
-          <section>gradient</section>
-        */}
+        </div>
       </div>
-      <div className="button-preview">
+      <div className="output">
         <ButtonPreview button={button} />
-        {/* <blockquote>Code Output</blockquote>
-        <p>HTML</p>
-        <pre />
-        <p>CSS</p>
-        <pre /> */}
+        <HTMLOutput innerText={button.text} />
+        <CSSOutput />
       </div>
     </div>
   );
 };
+
+/**
+  4 features to implement for today
+  4) box-shadow
+  copy feature
+**/
+
+/* FEATURES TO IMPLEMENT
+# Tab has arrow tip
+# Show CSS Output
+# Tabs Component
+# Logo Icon
+# Favicon
+# Install & publish to gh-pages
+*/
 
 export default App;

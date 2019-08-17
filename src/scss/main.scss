@@ -6,91 +6,10 @@
   display: flex;
   justify-content: space-between;
   padding: 20px;
-  width: 960px;
+  width: 1024px;
   margin: auto;
   font-size: 20px;
-  .settings {
-    section {
-      margin-bottom: 16px;
-      .section-name {
-        font-size: 36px;
-        font-weight: bold;
-        margin-bottom: 16px;
-      }
-      .input-group {
-        padding: 10px;
-        margin-bottom: 10px;
-        background: lighten(lightgray, 10%);
-      }
-    }
-    .text {
-      label {
-      }
-      input[type="text"] {
-        margin-top: 10px;
-        padding: 5px;
-      }
-      .text-inner {
-      }
-      .text-size {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        input[type="number"] {
-          width: 25%;
-          padding: 5px;
-        }
-      }
-      .text-style {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        input[type="checkbox"] {
-          cursor: pointer;
-          width: 20px;
-          height: 20px;
-        }
-      }
-      .text-color {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        input[type="color"] {
-          width: 20px;
-        }
-      }
-    }
-    .padding {
-    }
-    .border {
-      .border-style {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-      }
-      .border-color {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        input[type="color"] {
-          width: 20px;
-        }
-      }
-    }
-  }
-  .button-preview {
-    .my-button {
-      cursor: pointer;
-    }
-  }
-  .background {
-    .button-background {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      input[type="color"] {
-        width: 20px;
-      }
-    }
-  }
 }
+
+@import "./components/input";
+@import "./components/output";
