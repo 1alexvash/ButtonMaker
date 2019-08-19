@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/1alexvash/ButtonMaker/static/css/main.bf2bfae5.chunk.css",
-    "main.js": "/1alexvash/ButtonMaker/static/js/main.68cab1be.chunk.js",
-    "main.js.map": "/1alexvash/ButtonMaker/static/js/main.68cab1be.chunk.js.map",
-    "runtime~main.js": "/1alexvash/ButtonMaker/static/js/runtime~main.7a22157c.js",
-    "runtime~main.js.map": "/1alexvash/ButtonMaker/static/js/runtime~main.7a22157c.js.map",
-    "static/js/2.58847f79.chunk.js": "/1alexvash/ButtonMaker/static/js/2.58847f79.chunk.js",
-    "static/js/2.58847f79.chunk.js.map": "/1alexvash/ButtonMaker/static/js/2.58847f79.chunk.js.map",
-    "index.html": "/1alexvash/ButtonMaker/index.html",
-    "precache-manifest.9086be65c89536f6baa7546ef7ef3da5.js": "/1alexvash/ButtonMaker/precache-manifest.9086be65c89536f6baa7546ef7ef3da5.js",
-    "service-worker.js": "/1alexvash/ButtonMaker/service-worker.js",
-    "static/css/main.bf2bfae5.chunk.css.map": "/1alexvash/ButtonMaker/static/css/main.bf2bfae5.chunk.css.map"
+    "main.css": "/ButtonMaker/static/css/main.c7d75d73.chunk.css",
+    "main.js": "/ButtonMaker/static/js/main.31a5f002.chunk.js",
+    "main.js.map": "/ButtonMaker/static/js/main.31a5f002.chunk.js.map",
+    "runtime~main.js": "/ButtonMaker/static/js/runtime~main.0961ae27.js",
+    "runtime~main.js.map": "/ButtonMaker/static/js/runtime~main.0961ae27.js.map",
+    "static/js/2.58847f79.chunk.js": "/ButtonMaker/static/js/2.58847f79.chunk.js",
+    "static/js/2.58847f79.chunk.js.map": "/ButtonMaker/static/js/2.58847f79.chunk.js.map",
+    "index.html": "/ButtonMaker/index.html",
+    "precache-manifest.69198fbcf05719013954f1ce3210bb69.js": "/ButtonMaker/precache-manifest.69198fbcf05719013954f1ce3210bb69.js",
+    "service-worker.js": "/ButtonMaker/service-worker.js",
+    "static/css/main.c7d75d73.chunk.css.map": "/ButtonMaker/static/css/main.c7d75d73.chunk.css.map"
   }
 }
