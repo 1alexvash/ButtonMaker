@@ -22,7 +22,7 @@ const HTMLOutput = ({ innerText }) => {
         HTML output:{" "}
         <img
           className="code-copy"
-          src="/images/copy.png"
+          src="images/copy.png"
           title="Copy to clipboard"
           alt="copy"
           onClick={copyToClipboard}

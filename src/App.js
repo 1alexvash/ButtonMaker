@@ -54,7 +54,7 @@ const App = () => {
           <div className="tab-name" onClick={() => setTab("tab-text")}>
             Text:{" "}
             <img
-              src="/images/arrow-down.png"
+              src="images/arrow-down.png"
               alt="arrow-down"
               className="arrow-down"
             />
@@ -194,7 +194,7 @@ const App = () => {
           <div className="tab-name" onClick={() => setTab("tab-paddings")}>
             Paddings:{" "}
             <img
-              src="/images/arrow-down.png"
+              src="images/arrow-down.png"
               alt="arrow-down"
               className="arrow-down"
             />
@@ -256,7 +256,7 @@ const App = () => {
           <div className="tab-name" onClick={() => setTab("tab-border")}>
             Border:{" "}
             <img
-              src="/images/arrow-down.png"
+              src="images/arrow-down.png"
               alt="arrow-down"
               className="arrow-down"
             />
@@ -355,7 +355,7 @@ const App = () => {
           <div className="tab-name" onClick={() => setTab("tab-box-shadow")}>
             Box Shadow:{" "}
             <img
-              src="/images/arrow-down.png"
+              src="images/arrow-down.png"
               alt="arrow-down"
               className="arrow-down"
             />
@@ -439,7 +439,7 @@ const App = () => {
           <div className="tab-name" onClick={() => setTab("tab-background")}>
             Background:{" "}
             <img
-              src="/images/arrow-down.png"
+              src="images/arrow-down.png"
               alt="arrow-down"
               className="arrow-down"
             />
