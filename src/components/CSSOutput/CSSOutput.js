@@ -1,8 +1,12 @@
-import React, { Fragment, useRef } from "react";
+import React, { Fragment, useRef, useState } from "react";
 
-const CSSOutput = () => {
+const CSSOutput = ({ button }) => {
   const codeAreaRef = useRef(null);
   const textAreaRef = useRef(null);
+
+  const tab = <span>&emsp;</span>;
+
+  const [codeCopied, setCodeCopied] = useState(false);
 
   function copyToClipboard(e) {
     const codeText = codeAreaRef.current.innerText;
@@ -14,26 +18,97 @@ const CSSOutput = () => {
     document.execCommand("copy");
     e.target.focus();
     textAreaRef.current.classList.remove("active");
+
+    setCodeCopied(true);
+
+    setTimeout(() => {
+      setCodeCopied(false);
+    }, 5000);
   }
 
   return (
     <Fragment>
       <h3>
-        CSS output:{" "}
-        <img
-          className="code-copy"
-          src="images/copy.png"
-          title="Copy to clipboard"
-          alt="copy"
-          onClick={copyToClipboard}
-        />
+        CSS output:
+        <div className="code-copy">
+          {codeCopied ? (
+            <p className="code-copy-success">Code Copied</p>
+          ) : (
+            <img
+              className="code-copy-img"
+              src="images/copy.png"
+              title="Copy to clipboard"
+              alt="copy"
+              onClick={copyToClipboard}
+            />
+          )}
+        </div>
       </h3>
       <code className="css-output" ref={codeAreaRef}>
         .<span className="span green">my-button</span>{" "}
         <span className="red">&#123;</span>
         <br />
-        &nbsp;&nbsp;&nbsp;&nbsp;...
-        <div className="br" />
+        {tab} <span className="orange">font-family</span>: {button.fontFamily}
+        ;
+        <br />
+        {tab} <span className="orange">font-size</span>: {button.fontSize}px;
+        {button.textBold === true ? (
+          <Fragment>
+            <br />
+            {tab} <span className="orange">font-weight</span>: bold;
+          </Fragment>
+        ) : (
+          ""
+        )}
+        {button.textItalic === true ? (
+          <Fragment>
+            <br />
+            {tab} <span className="orange">font-style</span>: italic;
+          </Fragment>
+        ) : (
+          ""
+        )}
+        <br />
+        {tab} <span className="orange">color</span>: {button.textColor};
+        {button.hasTextShadow === true ? (
+          <Fragment>
+            <br />
+            {tab} <span className="orange">text-shadow</span>:{" "}
+            {button.textShadowX}px {button.textShadowY}px{" "}
+            {button.textShadowBlur}px {button.textShadowColor};
+          </Fragment>
+        ) : (
+          ""
+        )}
+        <br />
+        {tab} <span className="orange">padding</span>: {button.paddingTop}px{" "}
+        {button.paddingRight}px {button.paddingBottom}px {button.paddingLeft}px;
+        {button.borderWidth > 0 ? (
+          <Fragment>
+            <br />
+            {tab} <span className="orange">border</span>: {button.borderWidth}px{" "}
+            {button.borderStyle} {button.borderColor};
+          </Fragment>
+        ) : (
+          ""
+        )}
+        <br />
+        {tab} <span className="orange">border-radius</span>:{" "}
+        {button.borderRadiusTopLeft}px {button.borderRadiusTopRight}px{" "}
+        {button.borderRadiusBottomRight}px {button.borderRadiusBottomLeft}px;
+        {button.hasBoxShadow === true ? (
+          <Fragment>
+            <br />
+            {tab} <span className="orange">box-shadow</span>:{" "}
+            {button.boxShadowX}px {button.boxShadowY}px {button.boxShadowBlur}px{" "}
+            {button.boxShadowSize}px {button.boxShadowColor};
+          </Fragment>
+        ) : (
+          ""
+        )}
+        <br />
+        {tab} <span className="orange">background</span>: {button.background};
+        <br />
         <span className="red">&#125;</span>
       </code>
       <textarea ref={textAreaRef} defaultValue="Some text to copys" />

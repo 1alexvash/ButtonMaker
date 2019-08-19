@@ -1,8 +1,12 @@
-import React, { Fragment, useRef } from "react";
+import React, { Fragment, useRef, useState } from "react";
 
 const HTMLOutput = ({ innerText }) => {
   const codeAreaRef = useRef(null);
   const textAreaRef = useRef(null);
+
+  // const tab = <span>&emsp;</span>;
+
+  const [codeCopied, setCodeCopied] = useState(false);
 
   function copyToClipboard(e) {
     const codeText = codeAreaRef.current.innerText;
@@ -14,19 +18,31 @@ const HTMLOutput = ({ innerText }) => {
     document.execCommand("copy");
     e.target.focus();
     textAreaRef.current.classList.remove("active");
+
+    setCodeCopied(true);
+
+    setTimeout(() => {
+      setCodeCopied(false);
+    }, 5000);
   }
 
   return (
     <Fragment>
       <h3>
-        HTML output:{" "}
-        <img
-          className="code-copy"
-          src="images/copy.png"
-          title="Copy to clipboard"
-          alt="copy"
-          onClick={copyToClipboard}
-        />
+        HTML output:
+        <div className="code-copy">
+          {codeCopied ? (
+            <p className="code-copy-success">Code Copied</p>
+          ) : (
+            <img
+              className="code-copy-img"
+              src="images/copy.png"
+              title="Copy to clipboard"
+              alt="copy"
+              onClick={copyToClipboard}
+            />
+          )}
+        </div>
       </h3>
       <code className="html-output" ref={codeAreaRef}>
         &lt;<span className="red">div</span>{" "}

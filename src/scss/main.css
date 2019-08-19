@@ -187,9 +187,11 @@ input {
 }
 
 .input .tab-text .text-color input[type="color"] {
+  cursor: pointer;
   width: 24px;
   height: 24px;
   padding: 0;
+  border: none;
 }
 
 .input .tab-text .text-has-shadow {
@@ -228,9 +230,11 @@ input {
 }
 
 .input .tab-text .text-shadow input[type="color"] {
+  cursor: pointer;
   display: block;
   width: 24px;
   height: 24px;
+  border: none;
   padding: 0;
 }
 
@@ -259,9 +263,11 @@ input {
 }
 
 .input .tab-border .border-color input[type="color"] {
+  cursor: pointer;
   width: 24px;
   height: 24px;
   padding: 0;
+  border: none;
 }
 
 .input .tab-box-shadow .has-box-shadow {
@@ -300,9 +306,11 @@ input {
 }
 
 .input .tab-box-shadow .box-shadow input[type="color"] {
+  cursor: pointer;
   display: block;
   width: 24px;
   height: 24px;
+  border: none;
   padding: 0;
 }
 
@@ -319,9 +327,11 @@ input {
 }
 
 .input .tab-background .button-background input[type="color"] {
+  cursor: pointer;
   width: 24px;
   height: 24px;
   padding: 0;
+  border: none;
 }
 
 .output {
@@ -346,6 +356,59 @@ input {
   position: absolute;
   top: 0;
   right: 0;
+}
+
+.output h3 .code-copy .code-copy-success {
+  position: relative;
+  background: black;
+  color: white;
+  font-size: 16px;
+  font-weight: normal;
+  padding: 4px;
+  border-radius: 4px;
+  -webkit-animation: codeCopiedSuccesfully 2s;
+          animation: codeCopiedSuccesfully 2s;
+}
+
+@-webkit-keyframes codeCopiedSuccesfully {
+  from {
+    opacity: 0;
+    -webkit-transform: translate(0, 10px);
+            transform: translate(0, 10px);
+  }
+  to {
+    opacity: 1;
+    -webkit-transform: translate(0, 0);
+            transform: translate(0, 0);
+  }
+}
+
+@keyframes codeCopiedSuccesfully {
+  from {
+    opacity: 0;
+    -webkit-transform: translate(0, 10px);
+            transform: translate(0, 10px);
+  }
+  to {
+    opacity: 1;
+    -webkit-transform: translate(0, 0);
+            transform: translate(0, 0);
+  }
+}
+
+.output h3 .code-copy .code-copy-success:after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  -webkit-transform: translate(-50%, 100%);
+          transform: translate(-50%, 100%);
+  display: block;
+  border: 6px solid;
+  border-color: black transparent transparent transparent;
+}
+
+.output h3 .code-copy .code-copy-img {
   width: 32px;
   height: 32px;
 }

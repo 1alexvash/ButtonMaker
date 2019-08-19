@@ -44,7 +44,6 @@ const App = () => {
       ...button,
       [prop]: value
     });
-    console.log(value, prop, button);
   }
 
   return (
@@ -460,18 +459,10 @@ const App = () => {
       <div className="output">
         <ButtonPreview button={button} />
         <HTMLOutput innerText={button.text} />
-        <CSSOutput />
+        <CSSOutput button={button} />
       </div>
     </div>
   );
 };
-
-/* FEATURES TO IMPLEMENT
-# Show CSS Output
-# Show tooltip that text was copied
-# Preloader
-# Logo Icon
-# Favicon
-*/
 
 export default App;
