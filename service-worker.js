@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/ButtonMaker/precache-manifest.69198fbcf05719013954f1ce3210bb69.js"
+  "/ButtonMaker/precache-manifest.490948f50eef1f12efd9459705700cbf.js"
 );
 
 self.addEventListener('message', (event) => {
