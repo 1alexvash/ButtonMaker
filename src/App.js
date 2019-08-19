@@ -4,6 +4,8 @@ import "./scss/main.css";
 import ButtonPreview from "./components/ButtonPreview/ButtonPreview";
 import HTMLOutput from "./components/HTMLOutput/HTMLOutput";
 import CSSOutput from "./components/CSSOutput/CSSOutput";
+import Header from "./components/Header/Header";
+import Footer from "./components/Footer/Footer";
 
 const App = () => {
   const [tab, setTab] = useState("not set");
@@ -48,6 +50,7 @@ const App = () => {
 
   return (
     <div className="App">
+      <Header />
       <div className="input">
         <div className={`tab tab-text ${tab === "tab-text" ? "active" : ""}`}>
           <div className="tab-name" onClick={() => setTab("tab-text")}>
@@ -461,6 +464,7 @@ const App = () => {
         <HTMLOutput innerText={button.text} />
         <CSSOutput button={button} />
       </div>
+      <Footer />
     </div>
   );
 };

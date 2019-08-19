@@ -21,17 +21,36 @@ input {
 }
 
 .App {
-  font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
-  padding: 20px;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
   width: 1024px;
   margin: auto;
+  font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
   font-size: 20px;
+}
+
+.header {
+  width: 100%;
+  padding: 20px;
+  margin-bottom: 20px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  border-bottom: 2px solid #333;
+}
+
+.header .logo {
+  width: 48px;
+  margin-right: 16px;
 }
 
 .input {
@@ -458,4 +477,19 @@ input {
 
 .output textarea.active {
   display: block;
+}
+
+.footer {
+  text-align: center;
+  width: 100%;
+  padding: 20px;
+  background: lightgray;
+  border-top: 2px solid #333;
+  border-bottom: 2px solid #333;
+  color: #333;
+}
+
+.footer a {
+  font-weight: bold;
+  color: #333;
 }
