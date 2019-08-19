@@ -363,6 +363,25 @@ input {
   margin-bottom: 16px;
 }
 
+.output .button-window {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  border: 2px solid black;
+  height: 400px;
+  margin-bottom: 20px;
+}
+
+.output .button-window .my-button {
+  cursor: pointer;
+}
+
 .output h3 {
   position: relative;
   font-size: 24px;
@@ -432,25 +451,6 @@ input {
   height: 32px;
 }
 
-.output .button-window {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  border: 2px solid black;
-  height: 400px;
-  margin-bottom: 20px;
-}
-
-.output .button-window .my-button {
-  cursor: pointer;
-}
-
 .output code {
   display: block;
   margin-bottom: 20px;
@@ -469,6 +469,12 @@ input {
 
 .output code .orange {
   color: orange;
+}
+
+.output code .gap,
+.output code .prop {
+  display: block;
+  padding-left: 30px;
 }
 
 .output textarea {

@@ -4,8 +4,6 @@ const CSSOutput = ({ button }) => {
   const codeAreaRef = useRef(null);
   const textAreaRef = useRef(null);
 
-  const tab = <span>&emsp;</span>;
-
   const [codeCopied, setCodeCopied] = useState(false);
 
   function copyToClipboard(e) {
@@ -47,68 +45,80 @@ const CSSOutput = ({ button }) => {
       <code className="css-output" ref={codeAreaRef}>
         .<span className="span green">my-button</span>{" "}
         <span className="red">&#123;</span>
-        <br />
-        {tab} <span className="orange">font-family</span>: {button.fontFamily}
-        ;
-        <br />
-        {tab} <span className="orange">font-size</span>: {button.fontSize}px;
+        <span className="prop">
+          {" "}
+          <span className="orange">font-family</span>: {button.fontFamily};
+        </span>
+        <span className="prop">
+          <span className="orange">font-size</span>: {button.fontSize}px;
+        </span>
         {button.textBold === true ? (
           <Fragment>
-            <br />
-            {tab} <span className="orange">font-weight</span>: bold;
+            <span className="prop">
+              {" "}
+              <span className="orange">font-weight</span>: bold;
+            </span>
           </Fragment>
         ) : (
           ""
         )}
         {button.textItalic === true ? (
           <Fragment>
-            <br />
-            {tab} <span className="orange">font-style</span>: italic;
+            <span className="prop">
+              <span className="orange">font-style</span>: italic;
+            </span>
           </Fragment>
         ) : (
           ""
         )}
-        <br />
-        {tab} <span className="orange">color</span>: {button.textColor};
+        <span className="prop">
+          <span className="orange">color</span>: {button.textColor};
+        </span>
         {button.hasTextShadow === true ? (
           <Fragment>
-            <br />
-            {tab} <span className="orange">text-shadow</span>:{" "}
-            {button.textShadowX}px {button.textShadowY}px{" "}
-            {button.textShadowBlur}px {button.textShadowColor};
+            <span className="prop">
+              <span className="orange">text-shadow</span>: {button.textShadowX}
+              px {button.textShadowY}px {button.textShadowBlur}px{" "}
+              {button.textShadowColor};
+            </span>
           </Fragment>
         ) : (
           ""
         )}
-        <br />
-        {tab} <span className="orange">padding</span>: {button.paddingTop}px{" "}
-        {button.paddingRight}px {button.paddingBottom}px {button.paddingLeft}px;
+        <span className="prop">
+          <span className="orange">padding</span>: {button.paddingTop}px{" "}
+          {button.paddingRight}px {button.paddingBottom}px {button.paddingLeft}
+          px;
+        </span>
         {button.borderWidth > 0 ? (
           <Fragment>
-            <br />
-            {tab} <span className="orange">border</span>: {button.borderWidth}px{" "}
-            {button.borderStyle} {button.borderColor};
+            <span className="prop">
+              <span className="orange">border</span>: {button.borderWidth}px{" "}
+              {button.borderStyle} {button.borderColor};
+            </span>
           </Fragment>
         ) : (
           ""
         )}
-        <br />
-        {tab} <span className="orange">border-radius</span>:{" "}
-        {button.borderRadiusTopLeft}px {button.borderRadiusTopRight}px{" "}
-        {button.borderRadiusBottomRight}px {button.borderRadiusBottomLeft}px;
+        <span className="prop">
+          <span className="orange">border-radius</span>:{" "}
+          {button.borderRadiusTopLeft}px {button.borderRadiusTopRight}px{" "}
+          {button.borderRadiusBottomRight}px {button.borderRadiusBottomLeft}px;
+        </span>
         {button.hasBoxShadow === true ? (
           <Fragment>
-            <br />
-            {tab} <span className="orange">box-shadow</span>:{" "}
-            {button.boxShadowX}px {button.boxShadowY}px {button.boxShadowBlur}px{" "}
-            {button.boxShadowSize}px {button.boxShadowColor};
+            <span className="prop">
+              <span className="orange">box-shadow</span>: {button.boxShadowX}px{" "}
+              {button.boxShadowY}px {button.boxShadowBlur}px{" "}
+              {button.boxShadowSize}px {button.boxShadowColor};
+            </span>
           </Fragment>
         ) : (
           ""
         )}
-        <br />
-        {tab} <span className="orange">background</span>: {button.background};
-        <br />
+        <span className="prop">
+          <span className="orange">background</span>: {button.background};
+        </span>
         <span className="red">&#125;</span>
       </code>
       <textarea ref={textAreaRef} defaultValue="Some text to copys" />

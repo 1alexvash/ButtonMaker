@@ -48,9 +48,7 @@ const HTMLOutput = ({ innerText }) => {
         &lt;<span className="red">div</span>{" "}
         <span className="green">class</span>=
         <span className="orange">"my-button"</span>&gt;
-        <br />
-        &nbsp;&nbsp;&nbsp;&nbsp;{innerText}
-        <br />
+        <span className="gap">{innerText}</span>
         &lt;<span className="red">/div</span>&gt;
       </code>
       <textarea ref={textAreaRef} defaultValue="Some text to copys" />
