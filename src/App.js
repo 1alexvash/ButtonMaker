@@ -30,7 +30,13 @@ const App = () => {
     textShadowX: 0,
     textShadowY: 0,
     textShadowBlur: 0,
-    textShadowColor: "#333333"
+    textShadowColor: "#333333",
+    hasBoxShadow: false,
+    boxShadowX: 2,
+    boxShadowY: 4,
+    boxShadowBlur: 5,
+    boxShadowSize: 1,
+    boxShadowColor: "#333333"
   });
 
   function buttonSetNewValue(value, prop) {
@@ -342,6 +348,90 @@ const App = () => {
           </div>
         </div>
         <div
+          className={`tab tab-box-shadow ${
+            tab === "tab-box-shadow" ? "active" : ""
+          }`}
+        >
+          <div className="tab-name" onClick={() => setTab("tab-box-shadow")}>
+            Box Shadow:{" "}
+            <img
+              src="/images/arrow-down.png"
+              alt="arrow-down"
+              className="arrow-down"
+            />
+          </div>
+          <div className="tab-content">
+            <div className="input-group has-box-shadow">
+              <label htmlFor="hasBoxShadow">Turn On Box Shadow</label>
+              <input
+                id="hasBoxShadow"
+                value={button.hasBoxShadow}
+                onClick={e =>
+                  buttonSetNewValue(e.target.checked, "hasBoxShadow")
+                }
+                type="checkbox"
+              />
+            </div>
+            <div className="input-group box-shadow">
+              <div>
+                <label htmlFor="boxShadowX">X:</label>
+                <input
+                  id="boxShadowX"
+                  onChange={e =>
+                    buttonSetNewValue(e.target.value, "boxShadowX")
+                  }
+                  value={button.boxShadowX}
+                  type="number"
+                />
+              </div>
+              <div>
+                <label htmlFor="boxShadowY">Y:</label>
+                <input
+                  id="boxShadowY"
+                  onChange={e =>
+                    buttonSetNewValue(e.target.value, "boxShadowY")
+                  }
+                  value={button.boxShadowY}
+                  type="number"
+                />
+              </div>
+              <div>
+                <label htmlFor="boxShadowBlur">Blur:</label>
+                <input
+                  id="boxShadowBlur"
+                  onChange={e =>
+                    buttonSetNewValue(e.target.value, "boxShadowBlur")
+                  }
+                  value={button.boxShadowBlur}
+                  type="number"
+                />
+              </div>
+              <div>
+                <label htmlFor="boxShadowSize">Size:</label>
+                <input
+                  id="boxShadowSize"
+                  onChange={e =>
+                    buttonSetNewValue(e.target.value, "boxShadowSize")
+                  }
+                  value={button.boxShadowSize}
+                  type="number"
+                />
+              </div>
+              <div>
+                <label htmlFor="boxShadowColor">Color:</label>
+                <input
+                  id="boxShadowColor"
+                  onChange={e =>
+                    buttonSetNewValue(e.target.value, "boxShadowColor")
+                  }
+                  value={button.boxShadowColor}
+                  type="color"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+        <div
           className={`tab tab-background ${
             tab === "tab-background" ? "active" : ""
           }`}
@@ -376,19 +466,12 @@ const App = () => {
   );
 };
 
-/**
-  4 features to implement for today
-  4) box-shadow
-  copy feature
-**/
-
 /* FEATURES TO IMPLEMENT
-# Tab has arrow tip
 # Show CSS Output
-# Tabs Component
+# Show tooltip that text was copied
+# Preloader
 # Logo Icon
 # Favicon
-# Install & publish to gh-pages
 */
 
 export default App;

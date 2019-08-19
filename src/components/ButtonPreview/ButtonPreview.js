@@ -32,6 +32,17 @@ const ButtonPreview = ({ button }) => (
                   ${button.textShadowColor}
                 `
               : ""
+          }`,
+          boxShadow: `${
+            button.hasBoxShadow
+              ? `
+                  ${button.boxShadowX}px
+                  ${button.boxShadowY}px
+                  ${button.boxShadowBlur}px
+                  ${button.boxShadowSize}px
+                  ${button.boxShadowColor}
+                `
+              : ""
           }`
         }}
         className="my-button"

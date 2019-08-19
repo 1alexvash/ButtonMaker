@@ -6,9 +6,18 @@
     margin-bottom: 16px;
   }
   h3 {
+    position: relative;
     font-size: 24px;
     font-weight: bold;
     margin-bottom: 12px;
+    .code-copy {
+      cursor: pointer;
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 32px;
+      height: 32px;
+    }
   }
   .button-window {
     display: flex;
@@ -27,7 +36,6 @@
     font-size: 16px;
     padding: 10px;
     background: lighten(lightgray, 10%);
-    position: relative;
     .red {
       color: darken(red, 10%);
     }
@@ -37,13 +45,11 @@
     .orange {
       color: orange;
     }
-    .code-copy {
-      cursor: pointer;
-      position: absolute;
-      top: 0;
-      right: 0;
-      width: 32px;
-      height: 32px;
+  }
+  textarea {
+    display: none;
+    &.active {
+      display: block;
     }
   }
 }

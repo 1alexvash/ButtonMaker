@@ -264,6 +264,48 @@ input {
   padding: 0;
 }
 
+.input .tab-box-shadow .has-box-shadow {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.input .tab-box-shadow .has-box-shadow input[type="checkbox"] {
+  cursor: pointer;
+  width: 20px;
+  height: 20px;
+}
+
+.input .tab-box-shadow .box-shadow {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.input .tab-box-shadow .box-shadow input[type="number"] {
+  display: block;
+  width: 50%;
+}
+
+.input .tab-box-shadow .box-shadow input[type="color"] {
+  display: block;
+  width: 24px;
+  height: 24px;
+  padding: 0;
+}
+
 .input .tab-background .button-background {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -293,9 +335,19 @@ input {
 }
 
 .output h3 {
+  position: relative;
   font-size: 24px;
   font-weight: bold;
   margin-bottom: 12px;
+}
+
+.output h3 .code-copy {
+  cursor: pointer;
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 32px;
+  height: 32px;
 }
 
 .output .button-window {
@@ -323,7 +375,6 @@ input {
   font-size: 16px;
   padding: 10px;
   background: #ededed;
-  position: relative;
 }
 
 .output code .red {
@@ -338,11 +389,10 @@ input {
   color: orange;
 }
 
-.output code .code-copy {
-  cursor: pointer;
-  position: absolute;
-  top: 0;
-  right: 0;
-  width: 32px;
-  height: 32px;
+.output textarea {
+  display: none;
+}
+
+.output textarea.active {
+  display: block;
 }
