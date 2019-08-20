@@ -43,6 +43,13 @@ const ButtonPreview = ({ button }) => (
                   ${button.boxShadowColor}
                 `
               : ""
+          }`,
+          backgroundImage: `${
+            button.hasGradient
+              ? `${button.gradientType}(${button.gradientFrom}, ${
+                  button.gradientTo
+                })`
+              : ""
           }`
         }}
         className="my-button"

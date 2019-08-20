@@ -38,7 +38,11 @@ const App = () => {
     boxShadowY: 4,
     boxShadowBlur: 5,
     boxShadowSize: 1,
-    boxShadowColor: "#333333"
+    boxShadowColor: "#333333",
+    hasGradient: false,
+    gradientType: "linear-gradient",
+    gradientFrom: "#FF0000",
+    gradientTo: "#FFFF00"
   });
 
   function buttonSetNewValue(value, prop) {
@@ -456,6 +460,58 @@ const App = () => {
                 type="color"
               />
             </div>
+            <div className="input-group has-gradient">
+              <label htmlFor="hasGradient">Add Gradient</label>
+              <input
+                id="hasGradient"
+                onClick={e =>
+                  buttonSetNewValue(e.target.checked, "hasGradient")
+                }
+                checked={button.hasGradient}
+                type="checkbox"
+              />
+            </div>
+            {button.hasGradient ? (
+              <div className="input-group gradient-type">
+                <label htmlFor="gradientType">Gradient Type:</label>
+                <select
+                  id="gradientType"
+                  onChange={e =>
+                    buttonSetNewValue(e.target.value, "gradientType")
+                  }
+                  defaultValue={button.gradientType}
+                >
+                  <option value="linear-gradient">Linear</option>
+                  <option value="radial-gradient">Radial</option>
+                </select>
+              </div>
+            ) : (
+              ""
+            )}
+            {button.hasGradient ? (
+              <div className="input-group gradient">
+                <label htmlFor="gradientFrom">From:</label>
+                <input
+                  id="gradientFrom"
+                  onChange={e =>
+                    buttonSetNewValue(e.target.value, "gradientFrom")
+                  }
+                  defaultValue={button.gradientFrom}
+                  type="color"
+                />
+                <label htmlFor="gradientTo">To:</label>
+                <input
+                  id="gradientTo"
+                  onChange={e =>
+                    buttonSetNewValue(e.target.value, "gradientTo")
+                  }
+                  defaultValue={button.gradientTo}
+                  type="color"
+                />
+              </div>
+            ) : (
+              ""
+            )}
           </div>
         </div>
       </div>

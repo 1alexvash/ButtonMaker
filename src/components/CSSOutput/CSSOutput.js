@@ -119,6 +119,16 @@ const CSSOutput = ({ button }) => {
         <span className="prop">
           <span className="orange">background</span>: {button.background};
         </span>
+        {button.hasGradient === true ? (
+          <Fragment>
+            <span className="prop">
+              <span className="orange">background-image</span>:{" "}
+              {button.gradientType}({button.gradientFrom}, {button.gradientTo});
+            </span>
+          </Fragment>
+        ) : (
+          ""
+        )}
         <span className="red">&#125;</span>
       </code>
       <textarea ref={textAreaRef} defaultValue="Some text to copys" />
