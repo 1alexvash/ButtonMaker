@@ -27,7 +27,7 @@ const App = () => {
     borderRadiusTopRight: 8,
     borderRadiusBottomLeft: 8,
     borderRadiusBottomRight: 8,
-    background: "deepskyblue",
+    background: "#00bfff",
     hasTextShadow: false,
     textShadowX: 0,
     textShadowY: 0,
@@ -71,7 +71,7 @@ const App = () => {
               <input
                 id="text"
                 onChange={e => buttonSetNewValue(e.target.value, "text")}
-                defaultValue={button.text}
+                value={button.text}
                 type="text"
                 placeholder="Button Text"
               />
@@ -95,7 +95,7 @@ const App = () => {
               <input
                 id="textSize"
                 onChange={e => buttonSetNewValue(e.target.value, "fontSize")}
-                defaultValue={button.fontSize}
+                value={button.fontSize}
                 type="number"
                 placeholder="Text Size"
                 min="10"
@@ -125,7 +125,7 @@ const App = () => {
               <input
                 id="textColor"
                 onChange={e => buttonSetNewValue(e.target.value, "textColor")}
-                defaultValue={button.textColor}
+                value={button.textColor}
                 type="color"
               />
             </div>
@@ -295,7 +295,7 @@ const App = () => {
               <input
                 id="borderColor"
                 onChange={e => buttonSetNewValue(e.target.value, "borderColor")}
-                defaultValue={button.borderColor}
+                value={button.borderColor}
                 type="color"
               />
             </div>
@@ -456,7 +456,7 @@ const App = () => {
               <input
                 id="backgroundColor"
                 onChange={e => buttonSetNewValue(e.target.value, "background")}
-                defaultValue={button.background}
+                value={button.background}
                 type="color"
               />
             </div>
@@ -464,7 +464,7 @@ const App = () => {
               <label htmlFor="hasGradient">Add Gradient</label>
               <input
                 id="hasGradient"
-                onClick={e =>
+                onChange={e =>
                   buttonSetNewValue(e.target.checked, "hasGradient")
                 }
                 checked={button.hasGradient}
@@ -479,7 +479,7 @@ const App = () => {
                   onChange={e =>
                     buttonSetNewValue(e.target.value, "gradientType")
                   }
-                  defaultValue={button.gradientType}
+                  value={button.gradientType}
                 >
                   <option value="linear-gradient">Linear</option>
                   <option value="radial-gradient">Radial</option>
@@ -496,7 +496,7 @@ const App = () => {
                   onChange={e =>
                     buttonSetNewValue(e.target.value, "gradientFrom")
                   }
-                  defaultValue={button.gradientFrom}
+                  value={button.gradientFrom}
                   type="color"
                 />
                 <label htmlFor="gradientTo">To:</label>
@@ -505,7 +505,7 @@ const App = () => {
                   onChange={e =>
                     buttonSetNewValue(e.target.value, "gradientTo")
                   }
-                  defaultValue={button.gradientTo}
+                  value={button.gradientTo}
                   type="color"
                 />
               </div>

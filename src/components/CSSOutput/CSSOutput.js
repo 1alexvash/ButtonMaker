@@ -30,7 +30,9 @@ const CSSOutput = ({ button }) => {
         CSS output:
         <div className="code-copy">
           {codeCopied ? (
-            <p className="code-copy-success">Code Copied</p>
+            <p className="code-copy-success">
+              Succesfully <br /> Copied
+            </p>
           ) : (
             <img
               className="code-copy-img"
