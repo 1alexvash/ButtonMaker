@@ -6,6 +6,9 @@
   border-top: 2px solid #333;
   border-bottom: 2px solid #333;
   color: #333;
+  @include responsive(480px) {
+    padding: 15px;
+  }
   a {
     font-weight: bold;
     color: #333;

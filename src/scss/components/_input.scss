@@ -1,16 +1,24 @@
 .input {
   width: 45%;
+  @include responsive(800px) {
+    width: 48%;
+  }
   .tab {
     margin-bottom: 16px;
+    @include responsive(800px) {
+      margin-bottom: 12px;
+    }
     .tab-name {
       cursor: pointer;
       font-size: 36px;
       font-weight: bold;
-      margin-bottom: 16px;
       position: relative;
       padding: 10px;
       background: grey;
       transition: 0.7s;
+      @include responsive(800px) {
+        font-size: 24px;
+      }
       .arrow-down {
         user-select: none;
         position: absolute;
@@ -20,6 +28,10 @@
         width: 36px;
         height: 36px;
         transition: 0.7s;
+        @include responsive(800px) {
+          width: 24px;
+          height: 24px;
+        }
       }
     }
     .tab-content {
@@ -166,7 +178,7 @@
       align-items: center;
       input[type="number"] {
         display: block;
-        width: 50%;
+        width: 75%;
       }
       input[type="color"] {
         cursor: pointer;

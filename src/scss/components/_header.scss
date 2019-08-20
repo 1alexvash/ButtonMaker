@@ -6,6 +6,9 @@
   display: flex;
   align-items: center;
   border-bottom: 2px solid #333;
+  @include responsive(480px) {
+    padding: 15px;
+  }
   .logo {
     width: 48px;
     margin-right: 16px;

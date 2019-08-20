@@ -35,6 +35,33 @@ input {
   font-size: 20px;
 }
 
+@media (max-width: 1080px) {
+  .App {
+    width: 100%;
+  }
+  .App .input {
+    padding: 0 0 0 15px;
+  }
+  .App .output {
+    padding: 0 15px 0 0;
+  }
+}
+
+@media (max-width: 800px) {
+  .App .input,
+  .App .output {
+    font-size: 16px;
+  }
+}
+
+@media (max-width: 640px) {
+  .App .input,
+  .App .output {
+    padding: 0 15px;
+    width: 100%;
+  }
+}
+
 .header {
   width: 100%;
   padding: 20px;
@@ -48,6 +75,12 @@ input {
   border-bottom: 2px solid #333;
 }
 
+@media (max-width: 480px) {
+  .header {
+    padding: 15px;
+  }
+}
+
 .header .logo {
   width: 48px;
   margin-right: 16px;
@@ -57,20 +90,37 @@ input {
   width: 45%;
 }
 
+@media (max-width: 800px) {
+  .input {
+    width: 48%;
+  }
+}
+
 .input .tab {
   margin-bottom: 16px;
+}
+
+@media (max-width: 800px) {
+  .input .tab {
+    margin-bottom: 12px;
+  }
 }
 
 .input .tab .tab-name {
   cursor: pointer;
   font-size: 36px;
   font-weight: bold;
-  margin-bottom: 16px;
   position: relative;
   padding: 10px;
   background: grey;
   -webkit-transition: 0.7s;
   transition: 0.7s;
+}
+
+@media (max-width: 800px) {
+  .input .tab .tab-name {
+    font-size: 24px;
+  }
 }
 
 .input .tab .tab-name .arrow-down {
@@ -87,6 +137,13 @@ input {
   height: 36px;
   -webkit-transition: 0.7s;
   transition: 0.7s;
+}
+
+@media (max-width: 800px) {
+  .input .tab .tab-name .arrow-down {
+    width: 24px;
+    height: 24px;
+  }
 }
 
 .input .tab .tab-content {
@@ -321,7 +378,7 @@ input {
 
 .input .tab-box-shadow .box-shadow input[type="number"] {
   display: block;
-  width: 50%;
+  width: 75%;
 }
 
 .input .tab-box-shadow .box-shadow input[type="color"] {
@@ -357,10 +414,23 @@ input {
   width: 45%;
 }
 
+@media (max-width: 800px) {
+  .output {
+    width: 48%;
+  }
+}
+
 .output h2 {
   font-size: 36px;
   font-weight: bold;
   margin-bottom: 16px;
+}
+
+@media (max-width: 800px) {
+  .output h2 {
+    font-size: 24px;
+    margin-bottom: 12px;
+  }
 }
 
 .output .button-window {
@@ -378,6 +448,18 @@ input {
   margin-bottom: 20px;
 }
 
+@media (max-width: 800px) {
+  .output .button-window {
+    height: 300px;
+  }
+}
+
+@media (max-width: 640px) {
+  .output .button-window {
+    height: 250px;
+  }
+}
+
 .output .button-window .my-button {
   cursor: pointer;
 }
@@ -387,6 +469,13 @@ input {
   font-size: 24px;
   font-weight: bold;
   margin-bottom: 12px;
+}
+
+@media (max-width: 800px) {
+  .output h3 {
+    font-size: 20px;
+    margin-bottom: 8px;
+  }
 }
 
 .output h3 .code-copy {
@@ -459,6 +548,18 @@ input {
   background: #ededed;
 }
 
+@media (max-width: 800px) {
+  .output code {
+    margin-bottom: 15px;
+  }
+}
+
+@media (max-width: 800px) {
+  .output code {
+    font-size: 12px;
+  }
+}
+
 .output code .red {
   color: #cc0000;
 }
@@ -477,6 +578,13 @@ input {
   padding-left: 30px;
 }
 
+@media (max-width: 800px) {
+  .output code .gap,
+  .output code .prop {
+    padding-left: 20px;
+  }
+}
+
 .output textarea {
   display: none;
 }
@@ -493,6 +601,12 @@ input {
   border-top: 2px solid #333;
   border-bottom: 2px solid #333;
   color: #333;
+}
+
+@media (max-width: 480px) {
+  .footer {
+    padding: 15px;
+  }
 }
 
 .footer a {

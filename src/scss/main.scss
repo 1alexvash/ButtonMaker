@@ -11,6 +11,29 @@
 
   font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
   font-size: 20px;
+
+  @include responsive(1080px) {
+    width: 100%;
+    .input {
+      padding: 0 0 0 15px;
+    }
+    .output {
+      padding: 0 15px 0 0;
+    }
+  }
+  @include responsive(800px) {
+    .input,
+    .output {
+      font-size: 16px;
+    }
+  }
+  @include responsive(640px) {
+    .input,
+    .output {
+      padding: 0 15px;
+      width: 100%;
+    }
+  }
 }
 
 @import "./components/header";
