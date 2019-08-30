@@ -1,6 +1,6 @@
 # ButtonMaker
 
-Get current ButtonMaker in your location
+Create beautiful buttons with our tool!
 
 ## Installing the project && running on the local machine
 
